@@ -18,24 +18,24 @@ export default {
   }),
   methods: {
     handleDrop(e) {
-      e.stopPropagation()
+      e.stopPropagation();
       let dt = e.dataTransfer;
       let files = dt.files;
       this.handleFiles(files);
     },
     handleFiles(files) {
-      const toUpload = []
+      const toUpload = [];
       files.forEach((file) => {
-        if (file.type.includes('image')) toUpload.push(file)
+        if (file.type.includes("image")) toUpload.push(file);
       });
       [...toUpload].forEach(this.uploadFile);
       // eslint-disable-next-line no-unused-vars
       let interval = setInterval(() => {
         if (this.toAdd.length === toUpload.length) {
           this.$emit("filesAdded", this.toAdd);
-          clearInterval(interval)
+          clearInterval(interval);
         }
-      }, 100)
+      }, 100);
     },
     uploadFile(file) {
       const fr = new FileReader();
