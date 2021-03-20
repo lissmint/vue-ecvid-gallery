@@ -1,5 +1,20 @@
 # vue-ecwid-gallery
 
+## Функционал
+
+- Загрузка изображений
+  - Одно изображение поссылке
+  - Посредством загрузки JSON-файла
+  - Drag'n'Drop (один или несколько)
+- Удаление изображений    
+  - По одному
+  - Удаление всех загруженных изображений  
+
+## Стек
+- Vue.js
+- Pug
+- Stylus
+
 ## Project setup
 ```
 npm install
@@ -19,6 +34,3 @@ npm run build
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
