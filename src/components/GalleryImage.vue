@@ -3,7 +3,7 @@
     loading="lazy"
     :src="img.url"
     alt="gallery-image"
-    @loadend="loaded = true; $emit('loaded')"
+    @load="loaded = true; $emit('loaded')"
     :style="`opacity: ${ loaded ? 1 : 0 }`"
     height="500"
   )

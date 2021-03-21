@@ -31,6 +31,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+@import '../assets/variables.styl'
 .gallery
   margin 0 -.5rem
   display flex
@@ -69,6 +70,7 @@ export default {
       object-fit cover
       border-radius .5rem
       transition .5s ease-in
+      background bg
     @media screen and (max-width 768px)
       opacity 1
       &--remove

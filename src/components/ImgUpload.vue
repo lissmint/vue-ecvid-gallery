@@ -83,6 +83,7 @@ export default {
                 width,
                 height,
               });
+              this.url = "";
               this.error = false;
               this.success = true;
               this.uploadMsg = "Изображение добавлено";

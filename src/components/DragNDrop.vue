@@ -26,8 +26,9 @@ export default {
     handleFiles(files) {
       const toUpload = [];
       files.forEach((file) => {
-        if (file.type.includes("image")) toUpload.push(file);
+        if (file.type.includes("image") && file.size) toUpload.push(file);
       });
+      console.log(toUpload);
       [...toUpload].forEach(this.uploadFile);
       // eslint-disable-next-line no-unused-vars
       let interval = setInterval(() => {
