@@ -53,6 +53,8 @@ input[type="file"]
   display none
 .error
   color error
+.lock
+  overflow hidden
 img
   max-width 100%
 .app
@@ -60,3 +62,11 @@ img
     display flex
     align-items center
     justify-content space-between
+
+// TRANSITIONS
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */ {
+  opacity: 0;
+}

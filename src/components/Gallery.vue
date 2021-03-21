@@ -4,27 +4,47 @@
       v-for="(img, i) in imgs"
       :key="i"
       :class="{full: i % 3 === 0}"
+      @click="showLightbox(i)"
     )
       .gallery__img--remove
         img(
           src="/images/delete.svg"
-          @click="$emit('removeImage', i)"
+          @click.stop="$emit('removeImage', i)"
         )
       gallery-image(
         :img="img"
         :full="i % 3 === 0"
       )
+    transition(name="fade")
+      gallery-lightbox(
+        :imgs="imgs"
+        :currentIdx="lightboxIdx"
+        v-if="lightbox"
+        @hide="lightbox = false"
+      )
+
 </template>
 
 <script>
 import GalleryImage from "@/components/GalleryImage";
+import GalleryLightbox from "@/components/GalleryLightbox";
 export default {
   name: "Gallery",
-  components: { GalleryImage },
+  components: { GalleryLightbox, GalleryImage },
   props: {
     imgs: {
       type: Array,
       default: () => [],
+    },
+  },
+  data: () => ({
+    lightbox: false,
+    lightboxIdx: 0,
+  }),
+  methods: {
+    showLightbox(i) {
+      this.lightboxIdx = i;
+      this.lightbox = true;
     },
   },
 };
