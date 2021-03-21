@@ -57,6 +57,7 @@ export default {
   display flex
   flex-wrap wrap
   &__img
+    cursor pointer
     width calc(100%/2 - 1rem)
     margin .5rem
     max-height 30rem

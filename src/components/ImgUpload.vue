@@ -27,7 +27,15 @@
       .img-upload__form--file(v-else)
         form
           .img-upload__message(:class="{ error, success }")
-            | {{ uploadMsg }}
+            | {{ uploadMsg }}.&nbsp;
+            a(
+              href="https://picsum.photos/v2/list"
+              target="_blank"
+            ) Пример 1
+            a(
+              href="https://don16obqbay2c.cloudfront.net/frontend-test-task/gallery-images.json"
+              target="_blank"
+            ) Пример 2
           label
             | Загрузить
             input(type="file" @change="addImagesFromFile")
@@ -109,6 +117,16 @@ export default {
         try {
           const res = fr.result;
           const images = JSON.parse(res);
+          if (images.length) {
+            this.$emit(
+              "addImages",
+              images.map((img) => {
+                if (img.download_url) img.url = img.download_url;
+                return { ...img };
+              })
+            );
+            return;
+          }
           if (images) this.$emit("addImages", images.galleryImages);
         } catch (e) {
           this.error = true;

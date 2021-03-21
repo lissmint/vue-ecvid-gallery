@@ -6,6 +6,25 @@ html
   background-color #1e272e
 body
  margin 0
+a
+  text-decoration none
+  color #ffffff
+  margin 0 .3rem
+  padding 0 .3rem
+  position relative
+  &::before
+    content ''
+    position absolute
+    bottom -.1rem
+    left 0
+    height 100%
+    max-height .3rem
+    width 100%
+    background rgba(accent, .6)
+    z-index -1
+    transition .2s ease-out
+  &:hover::before
+    max-height 2rem
 #container
   margin 0 auto
   max-width 860px

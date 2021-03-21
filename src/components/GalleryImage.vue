@@ -5,7 +5,8 @@
     alt="gallery-image"
     @load="loaded = true; $emit('loaded')"
     :style="`opacity: ${ loaded ? 1 : 0 }`"
-    height="500"
+    height="img.height"
+    width="img.width"
   )
 </template>
 
